@@ -9,9 +9,11 @@ import java.util.Arrays;
 public class EjemploStream4 {
 
 	public static void main (String args[]) throws IOException {
+		//Escribimos qué proceso queremos lanzar
 		ProcessBuilder pb = new ProcessBuilder("java", "HolaMundo4");
 		pb.directory(new File("/home/sersai/psp/HolaMundo4/bin"));
-		Process process = pb.start() ;
+		
+		Process process = pb.start() ; //Empieza el proceso
         
         InputStream is = process.getInputStream() ;
         InputStream err = process.getErrorStream() ;
@@ -25,7 +27,7 @@ public class EjemploStream4 {
         BufferedReader br2 = new BufferedReader(isr2);
         
         OutputStream os = process.getOutputStream();
-        os.write("Hola Sergio\n".getBytes());
+        os.write("Sergio\n".getBytes());
         os.flush();
         
         int cont;

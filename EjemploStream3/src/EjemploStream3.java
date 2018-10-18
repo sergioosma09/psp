@@ -22,21 +22,26 @@ public class EjemploStream3 {
         InputStream err = process.getErrorStream() ;
         
         
-        //Captura la salida del proceso
+        //Con getErrorStream() obtenemos la posible salida de error del proceso ejecutada
+        //y se la asignamos a un objeto InputStream
+        //El cual vamos a poder leer creando un StreamReader
         InputStreamReader isr = new InputStreamReader(err);
         BufferedReader br = new BufferedReader(isr);
         InputStreamReader isr2 = new InputStreamReader(is);
         BufferedReader br2 = new BufferedReader(isr2);
         
         
-        //Conectamos un OutputStream a la entrada estándar del hijo para poder escribir en ella
+        //Conectamos un OutputStream a la entrada estándar del hijo para poder escribir en ella                     
         OutputStream os = process.getOutputStream();
        
         
         
         os.write("Sergio\n".getBytes());
-        os.write("Sergio\n".getBytes());//Contraseñas erroneas
-        os.write("Sergio\n".getBytes());
+        os.write("Sergio\n".getBytes());//Escribimos 3 contraseñas en el OutputStream
+        os.write("Sergio\n".getBytes());//Con \n salta la linea
+        //El método write() necesita que se le pase un array de caracteres
+        //Con getBytes() lo convertimos en array
+        //Con flush se vacía el búffer de entrada
         os.flush();
         
         
@@ -44,11 +49,10 @@ public class EjemploStream3 {
         int cont;
         while ((cont = br.read()) != -1)
             System.out.print((char) cont);
-        String line;
        
+        String line;
+
         
-        
-        System.out.println("Salida del proceso " + Arrays.toString(args) + " :" ) ;
         while((line=br2.readLine())!= null ) {
         System.out.println(line);//Muestra la salida del error
         }
