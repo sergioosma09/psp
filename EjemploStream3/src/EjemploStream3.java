@@ -18,13 +18,14 @@ public class EjemploStream3 {
         
        
         
-        InputStream is = process.getInputStream() ;
-        InputStream err = process.getErrorStream() ;
+      
         
-        
+        //Con getInputStream() obtenemos la salida estándar del proceso ejecutada
         //Con getErrorStream() obtenemos la posible salida de error del proceso ejecutada
         //y se la asignamos a un objeto InputStream
         //El cual vamos a poder leer creando un StreamReader
+        InputStream is = process.getInputStream() ;
+        InputStream err = process.getErrorStream() ;
         InputStreamReader isr = new InputStreamReader(err);
         BufferedReader br = new BufferedReader(isr);
         InputStreamReader isr2 = new InputStreamReader(is);
@@ -51,8 +52,11 @@ public class EjemploStream3 {
             System.out.print((char) cont);
        
         String line;
-
         
+        
+        //Escribimos en la salida del proceso principal
+        System.out.println("Linea de error");
+        //Leemos las lineas de la salida estándar de error con el bufferedReader y las imprimimos.
         while((line=br2.readLine())!= null ) {
         System.out.println(line);//Muestra la salida del error
         }
