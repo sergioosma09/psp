@@ -20,7 +20,7 @@ public class Prioridad {
 		thread3.setPriority(Thread.MIN_PRIORITY);
 		HiloPrioridad thread4 = new HiloPrioridad();
 		thread4.setName("Hilo 4");
-		thread4.setPriority(3);
+		thread4.setPriority(Thread.MAX_PRIORITY);
 		thread1.start();
 		thread2.start();
 		thread3.start();
