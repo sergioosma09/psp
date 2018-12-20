@@ -1,4 +1,4 @@
-public class LanzaHilos216 extends Thread{
+public class LanzaHilos218 extends Thread{
 
 	public static void main(String[] args) {
 		Contador contador=new Contador(100);
