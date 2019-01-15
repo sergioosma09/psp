@@ -12,7 +12,8 @@ public class LanazaHilos220 {
 		 alumno.setName("alumno-"+ i);
 		 alumno.start();
 		 }
-		 HiloProfesor profesor = new HiloProfesor("Manolo Gamez", b);
+
+		 HiloProfesor profesor = new HiloProfesor("Manolo Gómez", b);
 		 profesor.start();
 		 }
 		} 
@@ -40,6 +41,7 @@ class Clase {
 	// Cuando el profesor saluda avisa a los alumnos con notifyAll de su llegada
 	public synchronized void llegadaProfesor(String nombre) {
 		System.out.println("Buenos dias a todos. Soy el profesor " + nombre);
+
 		this.clase_comenzada = true;
 		notifyAll();
 	}
@@ -53,7 +55,9 @@ class HiloAlumno extends Thread {
 	}
 
 	public void run() {
+
 		System.out.println("Alumno " + Thread.currentThread().getName() + " llega.");
+
 		try {
 			Thread.sleep(2000);
 			saludo.saludarProfesor();
@@ -75,6 +79,7 @@ class HiloProfesor extends Thread {
 
 	public void run() {
 		System.out.println(nombre + " llega.");
+
 		try {
 			Thread.sleep(1000);
 			saludo.llegadaProfesor(nombre);
