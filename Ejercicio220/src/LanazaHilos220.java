@@ -25,7 +25,7 @@ class Clase {
 	}
 
 	// Hasta que el profesor no salude no empieza la clase,
-	// por lo que los alumnos esperan con un wait
+	// por lo que los alumnos esperan con un waithola osma
 	public synchronized void saludarProfesor() {
 		try {
 			while (clase_comenzada == false) {
